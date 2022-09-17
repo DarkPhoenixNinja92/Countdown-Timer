@@ -1,4 +1,6 @@
-let countDate = new Date("Jan 1, 2022 00:00:00").getTime();
+let yearIs = 2022;
+let currentYear = new Date().getFullYear();
+let countDate = new Date(`Jan 1, ${yearIs} 00:00:00`).getTime();
 
 let x = setInterval(function() {
     let currentDateTime = new Date().getTime();
@@ -17,5 +19,9 @@ let x = setInterval(function() {
     if (distance < 0) {
         clearInterval(x);
         document.querySelector(".countdown").innerHTML = "TIMER EXPIRED";
+        if (yearIs < currentYear) {
+            yearIs = currentYear;
+            x;
+        }
     }
 })
